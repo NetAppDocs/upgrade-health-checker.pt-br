@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: set-up-upgrade-health-checker.html 
+keywords: upgrade, health, checker, set up, download 
+summary: Você pode baixar o Upgrade Health Checker para gerar relatórios abrangentes no local antes de atualizar para uma versão mais recente do ONTAP. 
+---
+= Baixe e configure o Upgrade Health Checker
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode baixar o Upgrade Health Checker para gerar relatórios abrangentes no local antes de atualizar para uma versão mais recente do ONTAP.
+
+.Antes de começar
+Configure uma máquina virtual para o Upgrade Health Checker com as seguintes especificações:
+
+* Processamento e memória: m5.large VM ou equivalente com 2 vCPUs e 8 GiB RAM.
+* Sistema operacional recomendado: Ubuntu 22.04 para compatibilidade ideal.
+* Armazenamento: forneça um volume raiz com no mínimo 100 GB e um volume NFS adicional de pelo menos 100 GB para garantir a preservação dos dados caso a máquina virtual seja comprometida.
+* Requisitos de hospedagem: coloque a VM em um local com conectividade de cluster e acesso à internet para permitir atualizações automáticas das ferramentas. A máquina deve ter acesso aos seguintes endpoints via HTTPS para realizar atualizações automáticas:
++
+** https://api.uhc.netapp.com[]
+** https://gql.aiq.netapp.com[]
++
+Caso o acesso à internet não esteja disponível, consulte a NetApp para obter orientação.
+
+
+
+* Pacotes recomendados: instale um servidor web para facilitar o acesso.
+
+
+Além disso, certifique-se de que a máquina virtual possa se conectar ao endpoint de telemetria (https://support.netapp.com/[]) por meio de HTTPS para permitir que a NetApp receba informações do AutoSupport sobre seus planos de atualização.
+
+.Passos
+. Baixe o arquivo binário do Upgrade Health Checker link:https://console.netapp.com/automationHub["navegando até o NetApp Console Automation Hub"] e localize o bloco do Upgrade Health Checker.
+. Configure a máquina virtual Upgrade Health Checker e use SSH para colocar o arquivo binário no local de sua escolha.
+. Verifique a assinatura digital do Upgrade Health Checker.
++
+Upgrade Health Checker possui um certificado de assinatura de código público (`UHC-Linux-codesigning-certificate-public.pem` e cadeias de certificados intermediários e raiz (`UHC-Linux-chain-certificates-public.pem`.
+
++
+.. (Opcional) Verifique o certificado de assinatura de código em relação à cadeia:
++
+[listing]
+----
+openssl verify -CAfile UHC-Linux-chain-certificates-public.pem UHC-Linux-codesigning-certificate-public.pem
+----
++
+Um resultado de `OK` confirma uma cadeia de confiança válida.
+
+.. Extraia a chave pública do certificado de assinatura de código:
++
+[listing]
+----
+openssl x509 -in UHC-Linux-codesigning-certificate-public.pem -pubkey -noout -out UHC-Linux-public.pub
+----
+.. Verifique o arquivo de assinatura (`uhc.sig`) em relação ao binário do Upgrade Health Checker usando a chave pública:
++
+[listing]
+----
+openssl dgst -sha256 -verify UHC-Linux-public.pub -signature uhc.sig uhc
+----
++
+Uma saída  `Verified OK` confirma que a assinatura é válida.
+
+
+
+. Configure uma conta de serviço e uma função para acesso ao cluster ONTAP. Para acesso ao cluster por meio do Upgrade Health Checker, crie a função de serviço como uma função REST.
++
+
+NOTE: Você pode criar um playbook Ansible para automatizar a implantação da função e do usuário em todos os clusters ONTAP.
+
++
+Você deve criar a conta de serviço para o aplicativo http. Use os seguintes comandos da CLI para configurar as permissões necessárias:
+
++
+[source, cli]
+----
+security login rest-role create -role uhctool -api /api -access readonly -vserver
+
+security login rest-role create -role uhctool -api /api/support/autosupport -access read_create_modify -vserver
+
+security login rest-role create -role uhctool -api /api/support/autosupport/messages -access read_create_modify -vserver
+
+vserver services web access create -name spi -role uhctool -vserver
+
+security login create -user-or-group-name uhctool -role uhctool -application http -authentication-method password
+
+security login create -user-or-group-name uhctool -role uhctool -application ssh -authentication-method password
+----
+. Configure o gerenciamento de credenciais para proteger o acesso ao aplicativo.
++
+Por exemplo, se você tiver CyberArk e Conjur, poderá configurar seu ambiente para evitar o envio de credenciais por meio de um arquivo yaml ou linha de comando.
+
++
+.. Crie os cofres necessários do CyberArk:
++
+... Crie um cofre (Main-Conjur-Safe) que armazene as credenciais e segredos do aplicativo
+... Crie um Safe (API-Credentials-Safe) que armazene o Conjur Host ID e a API Key
+... Crie um Safe (Conjur-SSL-Certificate) que contenha o certificado necessário
+
+
+.. Crie os arquivos de configuração (Conjur.conf) e de identidade (Conjur.identity) para este aplicativo:
++
+... Conjur.conf
++
+[listing]
+----
+account:
+plugins:[]
+appliance_url: https://FQDN
+cert_file: /etc/conjur.pem
+----
+... Conjur.identity
++
+[listing]
+----
+machine https://FQDN/authn
+login host /prodvault/devops/<Main-Conjur-Safe>/host1
+password XXXXXX
+----
+
+
+
+
++
+Aqui está um exemplo de como usar CyberArk e Conjur em um playbook do Ansible:
+
++
+.. Instale o Conjur Ansible Collection, que inclui o Conjur Ansible Lookup Plugin, no Ansible Host:
++
+[listing]
+----
+ansible-galaxy collection install cyberark.conjur
+----
+.. Crie uma tarefa em um arquivo yaml para obter o nome de usuário e a senha de CyberArk:
++
+[listing]
+----
+conjur_username: "{{ lookup('cyberark.conjur.conjur_variable', 'prodvault/devops/<Main-Conjur-Safe>/<Account name>/username', validate_certs=false) }}"
+conjur_password: "{{ lookup('cyberark.conjur.conjur_variable', 'prodvault/devops/<Main-Conjur-Safe>/<Account name>/password', validate_certs=false) }}"
+----
+
+
+
+
+.Qual é o próximo passo?
+Você pode usar o Upgrade Health Checker para ajudar você a planejar uma atualização do ONTAP link:generate-report-upgrade-health-checker.html["gerando um relatório de atualização"].

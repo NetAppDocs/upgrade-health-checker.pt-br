@@ -1,0 +1,400 @@
+---
+sidebar: sidebar 
+permalink: upgrade-health-checker-input-parameters.html 
+keywords: upgrade, health, checker, input, parameter 
+summary: Você pode obter mais informações sobre os parâmetros de entrada do Upgrade Health Checker para ajudá-lo a gerar um relatório de atualização para o seu cluster ONTAP. 
+---
+= Saiba mais sobre os parâmetros de entrada para o Upgrade Health Checker
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode aprender mais sobre os parâmetros de entrada do Upgrade Health Checker e como fornecê-los por meio de argumentos da CLI, arquivos de configuração ou prompts interativos para ajudá-lo a gerar um relatório de atualização para seu cluster ONTAP.
+
+
+
+== Prioridade dos métodos de entrada
+
+Upgrade Health Checker oferece diversas opções de entrada para todos os parâmetros. A ordem de prioridade para aceitar entradas é:
+
+. Argumentos da CLI (prioridade mais alta)
+. Arquivo de configuração (`config.yaml`)
+. Prompts interativos (prioridade mais baixa)
+
+
+Quando um parâmetro é fornecido por meio de vários métodos, a ferramenta usará o valor da fonte de maior prioridade.
+
+
+
+== Parâmetros de entrada
+
+
+
+=== Endereço IP do cluster
+
+O  `--cluster-ip`parâmetro especifica o endereço IP ou o nome do host do cluster ONTAP ao qual se conectar.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--cluster-ip`
+. Arquivo de configuração: `CLUSTER.IP`
+. Prompt interativo
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento da CLI:
++
+`./uhc --cluster-ip 192.168.1.100`
+
+* Config.yaml:
++
+[listing]
+----
+CLUSTER:
+  IP: "192.168.1.100"
+----
+* Modo interativo (se não fornecido acima):
++
+A ferramenta solicitará: `Enter cluster IP address:`
+
+
+
+====
+
+
+=== Nome de usuário do cluster
+
+O  `--cluster-username`parâmetro especifica o nome de usuário para autenticação no cluster ONTAP.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--cluster-username`
+. Arquivo de configuração: `CLUSTER.USERNAME`
+. Prompt interativo
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento da CLI:
++
+`./uhc --cluster-username admin`
+
+* Config.yaml:
++
+[listing]
+----
+CLUSTER:
+  USERNAME: "admin"
+----
+* Modo interativo (se não fornecido acima):
++
+A ferramenta solicitará: `Enter cluster username:`
+
+
+
+====
+
+
+=== Senha do cluster
+
+O  `--cluster-password`parâmetro especifica a senha para autenticação com o cluster ONTAP.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--cluster-password`
+. Arquivo de configuração: `CLUSTER.PASSWORD`
+. Prompt interativo (entrada segura)
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento de linha de comando (não recomendado por motivos de segurança):
++
+`./uhc --cluster-password mypassword`
+
+* Config.yaml (certifique-se de que as permissões de arquivo estejam restritas):
++
+[listing]
+----
+CLUSTER:
+  PASSWORD: "mypassword"
+----
+* Modo interativo (recomendado - senha oculta):
++
+A ferramenta solicitará: `Enter cluster password:`
+
+
+
+====
+
+
+=== Versão do ONTAP de destino
+
+O  `--target-ontap-version`parâmetro especifica a versão do ONTAP para a qual você deseja atualizar para análise. Use "current" para manter a versão do ONTAP do cluster existente.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--target-ontap-version`
+. Arquivo de configuração: `CLUSTER.TARGET_ONTAP_VERSION`
+. Menu de seleção interativo
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento da CLI:
++
+Versão atualizada do ONTAP: `./uhc --target-ontap-version 9.15.1`
+
++
+Manter a versão atual do ONTAP: `./uhc --target-ontap-version current`
+
+* Config.yaml:
++
+[listing]
+----
+CLUSTER:
+  TARGET_ONTAP_VERSION: "9.15.1"
+----
+* Modo interativo (se não fornecido acima):
++
+A ferramenta exibirá as versões disponíveis e solicitará a seleção
+
+
+
+====
+
+
+=== Aceitar contrato de licença do usuário final
+
+O `--accept-eula` parâmetro especifica se deve aceitar o contrato de licença do usuário final. Deve ser definido como `true` para prosseguir.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--accept-eula`
+. Arquivo de configuração: `CLUSTER.ACCEPT_EULA`
+. Prompt interativo
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento da CLI:
++
+`./uhc --accept-eula true`
+
+* Config.yaml:
++
+[listing]
+----
+CLUSTER:
+  ACCEPT_EULA: true
+----
+* Modo interativo (se não fornecido acima):
++
+A ferramenta exibirá o contrato de licença do usuário final e solicitará a aceitação
+
+
+
+====
+
+
+=== Caminho do arquivo de configuração
+
+O `--config-path` parâmetro especifica o caminho para um arquivo YAML de configuração personalizado.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--config-path`
+. Padrão: `config.yaml`
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento da CLI:
++
+`./uhc --config-path /path/to/custom_config.yaml`
+
+* Padrão (se não fornecido):
++
+A ferramenta procurará config.yaml no diretório atual
+
+
+
+====
+
+
+=== Executar caminho de saída
+
+O  `--runs-path`parâmetro especifica um diretório personalizado para armazenar os resultados das execuções e relatórios.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--runs-path`
+. Arquivo de configuração: `APP.RUNS_PATH`
+. Padrão: `./runs`
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento da CLI:
++
+`./uhc --runs-path /custom/output/path`
+
+* Config.yaml:
++
+[listing]
+----
+APP:
+  RUNS_PATH: "/custom/output/path"
+----
+* Padrão (se não fornecido):
++
+A ferramenta usará  `./runs` diretório
+
+
+
+====
+
+
+=== Ignorar verificação de compatibilidade
+
+O  `--skip-compatibility-check`parâmetro ignora as verificações de compatibilidade de hardware e usa a versão especificada do ONTAP que você deseja atualizar.
+
+
+CAUTION: Utilize esta opção somente se tiver certeza de que a versão do ONTAP de destino é compatível com o seu hardware.
+
+A ordem de prioridade para fornecer este parâmetro é:
+
+. Argumento da CLI: `--skip-compatibility-check`
+. Arquivo de configuração: `CLUSTER.SKIP_COMPATIBILITY_CHECK`
+. Padrão: `false`
+
+
+.Exemplos
+[%collapsible]
+====
+* Argumento da CLI:
++
+`./uhc --skip-compatibility-check true`
+
+* Config.yaml:
++
+[listing]
+----
+CLUSTER:
+  SKIP_COMPATIBILITY_CHECK: true
+----
+
+
+====
+
+
+=== Desativar telemetria
+
+Para desativar a telemetria, adicione o seguinte ao seu  `config.yaml` file:
+
+[listing]
+----
+TELEMETRY:
+  ENABLED: false
+----
+
+
+=== Desativar atualizações automáticas
+
+Para desativar as atualizações automáticas do Upgrade Health Checker, adicione o seguinte ao seu  `config.yaml` arquivo:
+
+[listing]
+----
+AUTO_UPDATE:
+  ENABLED: false
+----
+
+
+== Exemplos usando cada método de entrada
+
+
+
+=== Argumentos combinados da CLI
+
+[listing]
+----
+./uhc \
+  --cluster-ip 192.168.1.100 \
+  --cluster-username admin \
+  --cluster-password mypassword \
+  --target-ontap-version 9.15.1 \
+  --accept-eula true \
+  --config-path /path/to/custom_config.yaml \
+  --runs-path /custom/output \
+  --skip-compatibility-check false
+----
+
+
+=== Arquivo config.yaml
+
+[listing]
+----
+CLUSTER:
+  IP: "192.168.1.100"
+  USERNAME: "admin"
+  PASSWORD: "mypassword"
+  TARGET_ONTAP_VERSION: "9.15.1"
+  ACCEPT_EULA: true
+  SKIP_COMPATIBILITY_CHECK: false
+
+APP:
+  RUNS_PATH: "/custom/output"
+----
+
+
+=== Modo interativo
+
+Para solicitar interativamente todos os parâmetros de entrada necessários, execute Upgrade Health Checker sem argumentos:
+
+[source, bash]
+----
+./uhc
+----
+
+
+== Comandos adicionais
+
+Esses comandos fornecem algumas funcionalidades adicionais além da execução completa da ferramenta:
+
+* Exibir ajuda
++
+`./uhc --help`
+
+* Exibir versão
++
+`./uhc --version`
+
+* Testar a conectividade do cluster
++
+`./uhc --test-connectivity cluster`
+
+* Testar conectividade de telemetria
++
+`./uhc --test-connectivity telemetry`
+
+* Testar a conectividade de atualização automática
++
+`./uhc --test-connectivity autoupdate`
+
+* Executar todos os testes
++
+`./uhc --test all`
+
+
