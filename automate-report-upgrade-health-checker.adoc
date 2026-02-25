@@ -16,7 +16,7 @@ summary: Você pode automatizar a geração de relatórios do Upgrade Health Che
 Você pode automatizar a geração de relatórios do Upgrade Health Checker para reduzir seu esforço manual ao planejar upgrades do ONTAP em ambientes grandes e complexos.
 
 .Passos
-. Para garantir a criação bem-sucedida de seus relatórios de atualização, conclua todas as etapas de configuração necessárias e as tarefas únicas descritas em link:generate-upgrade-health-checker-report.html["Gerar um relatório de atualização do ONTAP"].
+. Para garantir a criação bem-sucedida de seus relatórios de atualização, conclua todas as etapas de configuração necessárias e as tarefas únicas descritas em link:generate-report-upgrade-health-checker.html["Gerar um relatório de atualização do ONTAP"].
 . Crie um script para executar o Upgrade Health Checker com os parâmetros apropriados para o seu ambiente.
 +
 [source, cli]
