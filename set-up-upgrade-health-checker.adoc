@@ -15,11 +15,20 @@ summary: Você pode baixar o Upgrade Health Checker para gerar relatórios abran
 [role="lead"]
 Você pode baixar o Upgrade Health Checker para gerar relatórios abrangentes no local antes de atualizar para uma versão mais recente do ONTAP.
 
+.Sobre esta tarefa
+O Upgrade Health Checker oferece suporte a atualizações para versões do ONTAP local 9.11.1 e posteriores. Se você estiver usando Cloud Volumes ONTAP, consulte link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-updating-ontap-cloud.html#supported-upgrade-paths["Atualizar Cloud Volumes ONTAP"] para obter informações sobre como atualizar seu sistema.
+
 .Antes de começar
 Configure uma máquina virtual para o Upgrade Health Checker com as seguintes especificações:
 
 * Processamento e memória: m5.large VM ou equivalente com 2 vCPUs e 8 GiB RAM.
-* Sistema operacional recomendado: Ubuntu 22.04 para compatibilidade ideal.
+* Sistema operacional recomendado: qualquer sistema operacional Linux com biblioteca glibc versão 2.28 ou superior para compatibilidade ideal. Isso inclui:
++
+** Ubuntu 22.04
+** RHEL8
+** RHEL9
+
+
 * Armazenamento: forneça um volume raiz com no mínimo 100 GB e um volume NFS adicional de pelo menos 100 GB para garantir a preservação dos dados caso a máquina virtual seja comprometida.
 * Requisitos de hospedagem: coloque a VM em um local com conectividade de cluster e acesso à internet para permitir atualizações automáticas das ferramentas. A máquina deve ter acesso aos seguintes endpoints via HTTPS para realizar atualizações automáticas:
 +
@@ -92,7 +101,7 @@ security login create -user-or-group-name uhctool -role uhctool -application htt
 
 security login create -user-or-group-name uhctool -role uhctool -application ssh -authentication-method password
 ----
-. Configure o gerenciamento de credenciais para proteger o acesso ao aplicativo.
+. (Opcional) Configure o gerenciamento de credenciais para proteger o acesso ao aplicativo.
 +
 Por exemplo, se você tiver CyberArk e Conjur, poderá configurar seu ambiente para evitar o envio de credenciais por meio de um arquivo yaml ou linha de comando.
 

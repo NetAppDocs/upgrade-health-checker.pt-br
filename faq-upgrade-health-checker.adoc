@@ -41,4 +41,4 @@ No entanto, o acesso à internet é necessário para atualizações automáticas
 
 == Quais versões do ONTAP o Upgrade Health Checker suporta?
 
-Upgrade Health Checker é compatível com atualizações para ONTAP 9.11.1 e versões posteriores.
+Upgrade Health Checker oferece suporte a atualizações para ambientes on-premises ONTAP 9.11.1 e posteriores.

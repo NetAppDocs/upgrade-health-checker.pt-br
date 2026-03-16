@@ -26,7 +26,6 @@
   <block id="a17989ff5f0962c2877477c74338ae61" category="section-title">É possível usar o Upgrade Health Checker sem conexão com a internet?</block>
   <block id="3880fea319e437eea669686be6861626" category="paragraph">Você não precisa de conexão com a internet para executar o Upgrade Health Checker. Ele gera planos de atualização e relatórios localmente usando os dados de configuração atuais do seu cluster ONTAP.</block>
   <block id="982d129000c1d3e533f5e8593c670b3d" category="section-title">Quais versões do ONTAP o Upgrade Health Checker suporta?</block>
-  <block id="4c8d49c7d71cf0e79e3740d7cf67dd62" category="paragraph">Upgrade Health Checker é compatível com atualizações para ONTAP 9.11.1 e versões posteriores.</block>
   <block id="b7c89596c79e950e74638e5d75919aee" category="summary">Você pode usar o Upgrade Health Checker para gerar um plano de atualização para um ou vários clusters ONTAP.</block>
   <block id="a46b239b0ed00e39f2903761716caf03" category="doc">Gere um plano de atualização com o Upgrade Health Checker</block>
   <block id="e170a21083188ebc6e00ef17f5167dd7" category="inline-link-macro">automatizar a geração de relatórios de atualização</block>
@@ -57,7 +56,6 @@
   <block id="e75e96e756ff4d38a10cdee84526ca22" category="doc">Saiba mais sobre o Upgrade Health Checker</block>
   <block id="88e9e7bdabbf15e882c2c1d5c1356ba0" category="paragraph">O Upgrade Health Checker é uma ferramenta de consultoria de atualização que fornece informações detalhadas e recomendações para ajudá-lo a concluir uma atualização do ONTAP com sucesso. Ele realiza verificações de integridade abrangentes no local, identificando bloqueios e avisos que você deve resolver antes de executar uma atualização.</block>
   <block id="aa3fb0007a6e493d6ff6af5e4cfd6ea9" category="paragraph">O Upgrade Health Checker pode ser integrado aos seus frameworks de automação e orquestração existentes para auxiliar na atualização de um ou vários clusters. Ele utiliza seus dados mais recentes do AutoSupport para gerar um relatório detalhado e preciso sobre os riscos associados aos seus clusters, informações sobre novos recursos e melhorias na versão do ONTAP para a qual você está atualizando e quaisquer ações a serem tomadas antes de tentar uma atualização do ONTAP.</block>
-  <block id="e7a7f914c2fd76fa002667ce774516e8" category="paragraph">Para saber mais sobre o Upgrade Health Checker, consulte o <block ref="6a92c3eccbf08c1bc6caa0a6e92c02bb" category="inline-link-macro-rx"></block>.</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Avisos legais</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Avisos legais fornecem acesso a declarações de direitos autorais, marcas registradas, patentes e mais.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Direitos autorais</block>
@@ -80,7 +78,6 @@
   <block id="ce2d4be7e0d93c8b156f834ce3704614" category="doc">Baixe e configure o Upgrade Health Checker</block>
   <block id="55dcd8cbc9d164986479594db66fd89e" category="paragraph">Configure uma máquina virtual para o Upgrade Health Checker com as seguintes especificações:</block>
   <block id="cf0860ffd4dc1929d768f74d92735b75" category="list-text">Processamento e memória: m5.large VM ou equivalente com 2 vCPUs e 8 GiB RAM.</block>
-  <block id="c7ca991550b74c4fb5521603081f476c" category="list-text">Sistema operacional recomendado: Ubuntu 22.04 para compatibilidade ideal.</block>
   <block id="28a03eb4af7c5f6abf99620ada6c6cfb" category="list-text">Armazenamento: forneça um volume raiz com no mínimo 100 GB e um volume NFS adicional de pelo menos 100 GB para garantir a preservação dos dados caso a máquina virtual seja comprometida.</block>
   <block id="492b15c109a51daa9f89630b4f2bb303" category="list-text">Requisitos de hospedagem: coloque a VM em um local com conectividade de cluster e acesso à internet para permitir atualizações automáticas das ferramentas. A máquina deve ter acesso aos seguintes endpoints via HTTPS para realizar atualizações automáticas:</block>
   <block id="072b499eacb5befcbdab2d6cc0fe02a0" category="list-text"><block ref="072b499eacb5befcbdab2d6cc0fe02a0" category="inline-link-rx"></block></block>
@@ -101,7 +98,6 @@
   <block id="9f58de4245b2fb930c02c3766a7ff23f" category="list-text">Configure uma conta de serviço e uma função para acesso ao cluster ONTAP. Para acesso ao cluster por meio do Upgrade Health Checker, crie a função de serviço como uma função REST.</block>
   <block id="15ec8997d97cf2ca0a22a65e524b2811" category="admonition">Você pode criar um playbook Ansible para automatizar a implantação da função e do usuário em todos os clusters ONTAP.</block>
   <block id="d9e228dba301308afb2b46a1a951b363" category="paragraph">Você deve criar a conta de serviço para o aplicativo http. Use os seguintes comandos da CLI para configurar as permissões necessárias:</block>
-  <block id="c8bb94969a3153538fe3ed12d5ad5c4f" category="list-text">Configure o gerenciamento de credenciais para proteger o acesso ao aplicativo.</block>
   <block id="034a1ea726a7fbf3e2fc72fde8ed680d" category="paragraph">Por exemplo, se você tiver CyberArk e Conjur, poderá configurar seu ambiente para evitar o envio de credenciais por meio de um arquivo yaml ou linha de comando.</block>
   <block id="f2f2f12c645a941c4c701a0ad14f78da" category="list-text">Crie os cofres necessários do CyberArk:</block>
   <block id="6fecc57bc25e97c77bad1c6d06e7153d" category="list-text">Crie um cofre (Main-Conjur-Safe) que armazene as credenciais e segredos do aplicativo</block>
@@ -232,4 +228,14 @@
   <block id="d8f8bff1a4b83b3c4aa6b4284a2e39c2" category="section-title">13 de fevereiro de 2026</block>
   <block id="f245d5b92eabff0d1c1d1e41530987d0" category="list-text">Para garantir a criação bem-sucedida de seus relatórios de atualização, conclua todas as etapas de configuração necessárias e as tarefas únicas descritas em <block ref="6489edbb98d22789fa797cea6950f9bd" category="inline-link-macro-rx"></block>.</block>
   <block id="4a5a50ece5ac2f055b9ecb1ac0f449f2" category="paragraph">No entanto, o acesso à internet é necessário para atualizações automáticas da ferramenta. Se o seu ambiente não tiver conectividade com a internet, você pode baixar manualmente a versão mais recente da ferramenta no bloco Upgrade Health Checker na <block ref="886a64ecc1d4032be9eb5d1da893e684" category="inline-link-macro-rx"></block>.</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">Sobre esta tarefa</block>
+  <block id="3a3843b2672bd389702bef2d50b13ac2" category="inline-link-macro">Atualizar Cloud Volumes ONTAP</block>
+  <block id="fbea9b709f9869db351058e2990a8978" category="paragraph">O Upgrade Health Checker oferece suporte a atualizações para versões do ONTAP local 9.11.1 e posteriores. Se você estiver usando Cloud Volumes ONTAP, consulte <block ref="28b2d523b3cffe11b9614de34794e1ab" category="inline-link-macro-rx"></block> para obter informações sobre como atualizar seu sistema.</block>
+  <block id="d2c961c08b2b0c36adb33c10963a0eb6" category="paragraph">Upgrade Health Checker oferece suporte a atualizações para ambientes on-premises ONTAP 9.11.1 e posteriores.</block>
+  <block id="bef81ef7170eb4c509a54d4673a85016" category="paragraph">Para saber mais sobre o Upgrade Health Checker, você pode consultar o <block ref="6a92c3eccbf08c1bc6caa0a6e92c02bb" category="inline-link-macro-rx"></block> ou assistir ao vídeo introdutório a seguir.</block>
+  <block id="c2aacd91b1737e52a658e8a6f26cab08" category="list-text">Sistema operacional recomendado: qualquer sistema operacional Linux com biblioteca glibc versão 2.28 ou superior para compatibilidade ideal. Isso inclui:</block>
+  <block id="e5051949dc3a37f9077e85df0f1c8a21" category="list-text">Ubuntu 22.04</block>
+  <block id="131e01e2ecbd7de2f9b3f16afa129bcd" category="list-text">RHEL8</block>
+  <block id="100147deec73dd6ee82e8d75ab8b4981" category="list-text">RHEL9</block>
+  <block id="3d814f055016b0a5f8d3fd580ea0225d" category="list-text">(Opcional) Configure o gerenciamento de credenciais para proteger o acesso ao aplicativo.</block>
 </blocks>
