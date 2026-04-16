@@ -17,6 +17,25 @@ Saiba mais sobre as novidades do Upgrade Health Checker. Você pode encontrar in
 
 
 
+== 15 de abril de 2026
+
+Esta atualização da documentação do Upgrade Health Checker inclui os seguintes recursos.
+
+* A UHC precisa de acesso a um novo ponto de extremidade (https://api.activeiq.netapp.com[] para que os recursos de atualização automática funcionem.
++
+link:set-up-upgrade-health-checker.html["Baixe e configure o Upgrade Health Checker"].
+
+* A UHC agora oferece um novo formato de relatório (.XLSX - editável por humanos) que complementa os formatos HTML (legível por humanos) e JSON (legível por máquina).
++
+link:generate-report-upgrade-health-checker.html["Gerar um relatório de atualização do ONTAP"].
+
++
+link:automate-report-upgrade-health-checker.html["Automatize a geração de planos de atualização com o Upgrade Health Checker"].
+
+
+
+
+
 == 13 de fevereiro de 2026
 
 O Upgrade Health Checker oferece uma nova solução para gerar relatórios abrangentes no local, permitindo que você conclua uma atualização do ONTAP com sucesso. Ele pode ser usado com estruturas de automação e orquestração existentes para aumentar a eficiência na atualização de clusters individuais ou múltiplos. O Upgrade Health Checker é compatível com atualizações para ONTAP 9.11.1 e versões posteriores.

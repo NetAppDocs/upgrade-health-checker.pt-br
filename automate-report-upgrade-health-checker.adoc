@@ -58,13 +58,15 @@ Tarefa agendada (cron job):
 
 NOTE: Cada execução do programa é uma execução única e terá todos os dados, logs e resultados associados na pasta  `runs` correspondente.
 
-. Abra o arquivo de relatório (nomeado `uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`) em um navegador da web para visualizar o relatório. Se você estiver executando o Upgrade Health Checker em um host remoto, primeiro baixe o arquivo de relatório para uma máquina onde você possa visualizá-lo em um navegador da web.
+. Abra o arquivo de relatório (nomeado  `uhc_<cluster-name>_<YYYYMMDDHHMMSS>`) em um navegador da web, no Microsoft Excel ou em um visualizador de JSON para visualizar o relatório. Se você estiver executando o Upgrade Health Checker em um host remoto, primeiro baixe o arquivo de relatório para um computador onde você possa visualizar o relatório em um navegador da web, no Excel ou em um visualizador de JSON.
 +
 O caminho do log e o caminho do relatório são os seguintes:
 
 +
 ** Caminho do log: `<output-path>/<unique-run-dir>/<cluster-name>/logs`
-** Caminho do relatório: `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`
+** Caminho do relatório HTML: `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`
+** Caminho do relatório do Excel: `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.xlsx`
+** Caminho do relatório JSON: `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.json`
 
 
 
