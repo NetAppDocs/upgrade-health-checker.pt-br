@@ -21,7 +21,7 @@ Saiba mais sobre as novidades do Upgrade Health Checker. Você pode encontrar in
 
 Esta atualização da documentação do Upgrade Health Checker inclui os seguintes recursos.
 
-* A UHC precisa de acesso a um novo ponto de extremidade (https://api.activeiq.netapp.com[] para que os recursos de atualização automática funcionem.
+* A UHC precisa de acesso a um novo ponto final (+https://api.activeiq.netapp.com+) para que os recursos de atualização automática funcionem.
 +
 link:set-up-upgrade-health-checker.html["Baixe e configure o Upgrade Health Checker"].
 
