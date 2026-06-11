@@ -31,29 +31,50 @@ O Upgrade Health Checker oferece suporte a atualizações para versões do ONTAP
   --target-ontap-version=<target-ontap-version> \
   --accept-eula=true
 ----
-+
-Aqui está um exemplo de uma tarefa cron que executa a ferramenta de segunda a sexta-feira às 4h da manhã. Os arquivos binário e config.yaml foram instalados em /opt/uhc/tool/.
-
-+
-Script bash:
-
+. Crie um script de automação para agendamentos cron para executar o Upgrade Health Checker. O script de exemplo a seguir executa o Upgrade Health Checker em vários clusters. Os arquivos binário e config.yaml foram instalados em /opt/uhc/tool/.
 +
 [listing]
 ----
 #!/bin/bash
-cd /opt/uhc/tool
-/opt/uhc/tool/uhc --accept-eula true --cluster-ip cluster-mgmt1.example.com --target-ontap-version current --cluster-username uhctool --cluster-password passw0rd
-/opt/uhc/tool/uhc --accept-eula true --cluster-ip cluster-mgmt2.example.com --target-ontap-version 9.14.1 --cluster-username uhctool --cluster-password passw0rd
-----
-+
-Tarefa agendada (cron job):
+# /opt/uhc/tool/uhccron.sh
+# Automated weekly Upgrade Health Checker run for all managed clusters
+# Schedule: Every Monday to Friday at 4am
 
+cd /opt/uhc/tool/
+
+# Cluster1 - keep current version (health check only)
+/opt/uhc/tool/uhc --cluster-ip cluster1-mgmt.example.com \ --target-ontap-version current
+
+# Cluster2 - target upgrade to 9.16.1
+/opt/uhc/tool/uhc --cluster-ip cluster2-mgmt.example.com \ --target-ontap-version 9.16.1
+
+# Cluster3 - target upgrade to 9.17.1
+/opt/uhc/tool/uhc --cluster-ip cluster3-mgmt.example.com \ --target-ontap-version 9.17.1
+
+# Cluster4 - by IP address
+/opt/uhc/tool/uhc --cluster-ip 10.20.30.40 --target-ontap-version 9.16.1
+
+# Add additional clusters as needed
+
+# Make the script executable (one-time setup step)
+chmod +x /opt/uhc/tool/uhccron.sh
+----
+. Configure o cron para executar o script de segunda a sexta-feira às 4h da manhã:
 +
 [listing]
 ----
-0 4 * * 1-5 /usr/local/bin/uhccron.sh
+# Edit the crontab for the uhctool user
+crontab -e
+
+# Add the following line to schedule the script to run Monday through Friday at 4:00 am
+0 4 * * 1-5 /opt/uhc/tool/uhccron.sh
 ----
-. Após a conclusão das verificações do Upgrade Health Checker, navegue até a `runs` pasta para visualizar o plano de atualização e o relatório do cluster.
+
+
+
+NOTE: Para monitoramento contínuo da integridade, utilize  `--target-ontap-version current` sem uma meta de atualização específica.
+
+. [[passo 5]] Depois que o Verificador de Saúde da Atualização concluir suas verificações, navegue até a  `runs` pasta para visualizar o plano de atualização e o relatório do cluster.
 +
 
 NOTE: Cada execução do programa é uma execução única e terá todos os dados, logs e resultados associados na pasta  `runs` correspondente.

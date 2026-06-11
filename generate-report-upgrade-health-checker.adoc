@@ -95,6 +95,10 @@ O Guia de Parâmetros de Entrada também fornece informações para especificar 
 
 NOTE: Cada execução do programa é uma "execução única" e terá todos os dados, registros e resultados associados na pasta  `runs` correspondente.
 
+. Liste os arquivos de relatório gerados:
++
+`ls -lrt`
+
 . Abra o arquivo de relatório (nomeado  `uhc_<cluster-name>_<YYYYMMDDHHMMSS>`) em um navegador da web, no Microsoft Excel ou em um visualizador de JSON para visualizar o relatório. Se estiver executando em um host remoto, primeiro baixe o arquivo de relatório para uma máquina onde você possa visualizar o relatório em um navegador da web, no Excel ou em um visualizador de JSON.
 +
 O caminho do log e o caminho do relatório são os seguintes:
@@ -107,3 +111,6 @@ O caminho do log e o caminho do relatório são os seguintes:
 
 
 
+
+.O que vem a seguir
+Após gerar seu plano de atualização e relatório de cluster, você pode visualizar o link:dashboard-upgrade-health-checker.html["Painel de controle do verificador de integridade de upgrade"] para obter detalhes do status de integridade dos clusters avaliados durante a execução.
