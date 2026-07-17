@@ -191,7 +191,6 @@
   <block id="daad4dadeda8cd86f01c8ad7f2a30465" category="summary">Descubra as novidades neste site de documentação.</block>
   <block id="a8324b80938b67ec782deb0221494038" category="doc">Novidades no Upgrade Health Checker</block>
   <block id="984ed907e956f5ada3f813bd4a802fd2" category="inline-link-macro">Hub de Automação do NetApp Console</block>
-  <block id="ae47874d4e80f14ff840114a5af1558e" category="paragraph">O Upgrade Health Checker oferece uma nova solução para gerar relatórios abrangentes no local, permitindo que você conclua uma atualização do ONTAP com sucesso. Ele pode ser usado com estruturas de automação e orquestração existentes para aumentar a eficiência na atualização de clusters individuais ou múltiplos. O Upgrade Health Checker é compatível com atualizações para ONTAP 9.11.1 e versões posteriores.</block>
   <block id="ba6d627457ce6f12fac3776c3f84b9f5" category="inline-link-macro">Saiba mais sobre o Upgrade Health Checker</block>
   <block id="c2da3472d13132f746797e82ab607214" category="paragraph"><block ref="311172ef496e6974c00a808505e30585" category="inline-link-macro-rx"></block>.</block>
   <block id="6e777a6e34571fc72776d25b82dfacec" category="sidebar">O Upgrade Health Checker realiza verificações de integridade abrangentes para ajudar você a planejar e executar uma atualização bem-sucedida do ONTAP.</block>
@@ -220,7 +219,6 @@
   <block id="82e19305023b5eb3613e715db77f833c" category="list-text">Caminho do relatório JSON:<block ref="fa32c5a3f7d651976fb4d5ab4d04b0b0" prefix=" " category="inline-code"></block></block>
   <block id="c9222608750e8dc2e14567da95cc5574" category="list-text">Abra o arquivo de relatório (nomeado <block ref="781e82a34e84af3b11fccec6b813c654" prefix=" " category="inline-code"></block>) em um navegador da web, no Microsoft Excel ou em um visualizador de JSON para visualizar o relatório. Se estiver executando em um host remoto, primeiro baixe o arquivo de relatório para uma máquina onde você possa visualizar o relatório em um navegador da web, no Excel ou em um visualizador de JSON.</block>
   <block id="ef442759af12bb34136648bc4519a80c" category="section-title">15 de abril de 2026</block>
-  <block id="46f2cb9a84a7af28bc6cd48700cc9900" category="paragraph">Esta atualização da documentação do Upgrade Health Checker inclui os seguintes recursos.</block>
   <block id="e1a2132b8b37788de7f02a2417b9fb84" category="paragraph"><block ref="818545cfdb8752d4fd7459b5cbb30ef7" category="inline-link-macro-rx"></block>.</block>
   <block id="b729a38666412b046926504f8c6e0c22" category="list-text">A UHC agora oferece um novo formato de relatório (.XLSX - editável por humanos) que complementa os formatos HTML (legível por humanos) e JSON (legível por máquina).</block>
   <block id="28644c8986780297cc12f67e6e53c6e9" category="paragraph"><block ref="6489edbb98d22789fa797cea6950f9bd" category="inline-link-macro-rx"></block>.</block>
@@ -228,7 +226,6 @@
   <block id="14bcc4201c40840cb4def541b49a3f32" category="sidebar">Primeiros passos com o Upgrade Health Checker usando NetApp Lab on Demand</block>
   <block id="9878135fc061d82ca23d024a73b70f17" category="list-text">Conectividade com o endpoint de telemetria (+https://support.netapp.com/+ e +https://api.activeiq.netapp.com+) por HTTPS</block>
   <block id="8e902ec9dc6816d99e16bdee4a2eed46" category="list-text">Conectividade com os endpoints de atualização automática (+https://api.uhc.netapp.com+, +https://gql.aiq.netapp.com+ e +https://api.activeiq.netapp.com+) via HTTPS (443)</block>
-  <block id="7da7d55bf35c61004edeb6d3b68a9970" category="list-text">A UHC precisa de acesso a um novo ponto final (+https://api.activeiq.netapp.com+) para que os recursos de atualização automática funcionem.</block>
   <block id="fb87b83f5a1f10d68c8aae574e593e92" category="list-text">Crie um script de automação para agendamentos cron para executar o Upgrade Health Checker. O script de exemplo a seguir executa o Upgrade Health Checker em vários clusters. Os arquivos binário e config.yaml foram instalados em /opt/uhc/tool/.</block>
   <block id="896d9c07e1c3a1231ece824cc9567062" category="list-text">Configure o cron para executar o script de segunda a sexta-feira às 4h da manhã:</block>
   <block id="ace9e20908f5ac61a1cd07a6d3d60c0f" category="admonition">Para monitoramento contínuo da integridade, utilize <block ref="bfb43d575663966ac38a26eb4b47410c" prefix=" " category="inline-code"></block> sem uma meta de atualização específica.</block>
@@ -296,20 +293,15 @@
   <block id="075d48f32d1c61c7bc401a6884f7cf92" category="list-text"><block ref="075d48f32d1c61c7bc401a6884f7cf92" category="inline-link-macro-rx"></block></block>
   <block id="2bc7aac0df718ec4b8d51eacce3de379" category="summary">Você pode configurar e-mails para receber relatórios do Upgrade Health Checker.</block>
   <block id="403a25a6039c0e1bf716eb5582433b74" category="doc">Receba relatórios do Verificador de Saúde da Atualização por e-mail</block>
-  <block id="860efc9b661f4d41df0b3275d4a01f9e" category="paragraph">Você pode integrar e-mails ao Upgrade Health Checker para receber relatórios na sua caixa de entrada. Você habilita esse recurso por meio do arquivo config.yaml ou argumento de linha de comando. Quando habilitado, o Upgrade Health Checker envia os relatórios gerados (HTML, Excel ou JSON) para um ou mais destinatários configurados usando um servidor SMTP. Quando o recurso está desabilitado, nenhum relatório é enviado. Se a geração de relatórios falhar e o envio por e-mail estiver habilitado, os arquivos de log serão enviados aos destinatários configurados.</block>
   <block id="e152f7a0987cd387b3f0af29e5da3550" category="section-title">Configurar usando o arquivo config.yaml</block>
   <block id="7b717dfd9ad1ff92fe9062d96808c202" category="list-text">Ative o envio de relatórios por e-mail no arquivo config.yaml.</block>
-  <block id="a5506b391e227dfd4ee5fcf46a44f411" category="list-text">Forneça a configuração SMTP juntamente com os detalhes do remetente e o assunto:</block>
-  <block id="dc0335c87191d92d81fca87bdb3e9a6d" category="list-text">Forneça os endereços de e-mail dos destinatários e configure quais formatos de relatório são enviados por e-mail, por exemplo, HTML, EXCEL, JSON, ALL:</block>
   <block id="becf91e5465bdb37d46d763d4aab426c" category="section-title">Configurar usando argumentos de linha de comando</block>
   <block id="479f67ea57ff0730833a90e8cb344675" category="list-text">Ativar relatórios por e-mail usando argumentos de linha de comando:</block>
   <block id="86687a26ed58885822822c492bb525c6" category="list-text">Forneça os endereços de e-mail dos destinatários:</block>
   <block id="50473cade6ce5b072ef594d97e30f293" category="list-text">Configure quais formatos de relatório são enviados por e-mail, por exemplo, HTML, EXCEL, JSON:</block>
-  <block id="6cde847387b92f199ce8915b3692ac37" category="paragraph">Os três atributos a seguir podem ser configurados usando argumentos de linha de comando e o arquivo config.yaml; os atributos restantes só podem ser configurados no arquivo config.yaml:</block>
   <block id="02d162bc011d2df35f8cd6f906d7d60a" category="list-text">E-mail ativado</block>
   <block id="f46e85a0de52240f550f9daab9d6086c" category="list-text">Destinatários de e-mail</block>
   <block id="ea263adf46b6d5e874d790afd83f0987" category="list-text">Formatos de relatório por e-mail</block>
-  <block id="2b6bf35359882281e9a439e9cfcdfd7a" category="paragraph">Observe que, quando argumentos de linha de comando são fornecidos, eles substituem os valores do arquivo config.yaml.</block>
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">Por exemplo:</block>
   <block id="1cc4274eac4a90919037379ad302ee24" category="summary">Solução de problemas do verificador de integridade da atualização: problemas, erros e soluções comuns para upgrades do ONTAP.</block>
   <block id="33fc1d20f1d2e7e8d9ea39cc1c1e260b" category="doc">Solução de problemas do verificador de integridade da atualização</block>
@@ -379,7 +371,6 @@
   <block id="e06741797ed1dc0a966f53071a491401" category="inline-link-macro">Parâmetro do dashboard</block>
   <block id="2db3ba2e9c7b7806153c255359ca61d2" category="paragraph"><block ref="cb5987a19cc29bdff093adf9e3c49ecc" category="inline-link-macro-rx"></block>, <block ref="742c6b812eaf7871aa5cdafc51efea43" category="inline-link-macro-rx"></block>.</block>
   <block id="b8625ecfb276c9ebf1ede5fca0088ca8" category="list-text">Apresenta uma nova seção de Manutenção, Solução de Problemas e Perguntas Frequentes.</block>
-  <block id="1ab8a927937778a6689a579c30b0ccaa" category="list-text">Mantenha o Upgrade Health Checker em funcionamento verificando regularmente se há atualizações, monitorando os logs em busca de problemas recorrentes e garantindo que a ferramenta esteja configurada corretamente para o seu ambiente.</block>
   <block id="dee801512c32b9a598a47b86ba488f76" category="paragraph"><block ref="4e186b263c1e6fa5ae08ef69bdaf2995" category="inline-link-macro-rx"></block>.</block>
   <block id="f12f1c86955a028fd35ab9eaff2150a3" category="list-text">Solucione problemas comuns do Verificador de Integridade da Atualização e resolva erros que podem bloquear o planejamento da atualização do ONTAP.</block>
   <block id="baa81debda1c4b19727722cd64a108d4" category="paragraph"><block ref="3597fe8c8063c1708eb12f618dae69b7" category="inline-link-macro-rx"></block>.</block>
@@ -388,4 +379,24 @@
   <block id="0ff45cc75d0cd4d181c04f8f358944c3" category="sidebar">Manutenção, solução de problemas, perguntas frequentes</block>
   <block id="ade01a5a398372194a42c36e9f5279ac" category="sidebar">Manter</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">Solução de problemas</block>
+  <block id="b8587c4f26b562a2289d2c3ebc1490cd" category="paragraph">O Upgrade Health Checker pode enviar relatórios diretamente para sua caixa de entrada. Habilite esse recurso por meio do arquivo config.yaml ou de um argumento de linha de comando. Quando habilitado, o Upgrade Health Checker envia os relatórios gerados (HTML, Excel ou JSON) para um ou mais destinatários por meio de um servidor SMTP. Quando desabilitado, nenhum relatório é enviado. Se a geração do relatório falhar e o envio de e-mails estiver habilitado, o Upgrade Health Checker envia os arquivos de log para os destinatários configurados.</block>
+  <block id="8e02ede1d03aac90f92cc176cace3e9c" category="paragraph">Você pode configurar as definições de e-mail no arquivo config.yaml, ativando os relatórios por e-mail, adicionando detalhes do servidor SMTP e especificando os endereços dos destinatários e os formatos dos relatórios.</block>
+  <block id="c27f5ad22c5694f3bdac1429bc3dbc35" category="list-text">Adicione as configurações SMTP, os detalhes do remetente e o assunto:</block>
+  <block id="3580e74e397e00dc281bbd9214fb9056" category="list-text">Adicione os endereços de e-mail dos destinatários e defina quais formatos de relatório o sistema enviará por e-mail, por exemplo, HTML, EXCEL, JSON ou ALL. Você também pode usar autenticação e criptografia:</block>
+  <block id="2a91e94a72840e7924d016578fbad286" category="paragraph">Você pode configurar as definições básicas de email usando argumentos de linha de comando para ativar relatórios, especificar destinatários e selecionar formatos de relatório.</block>
+  <block id="5a218b91f6158f83ff408c235c22608f" category="paragraph">Você pode configurar os três atributos a seguir usando argumentos de linha de comando ou o arquivo config.yaml. Você pode configurar todos os demais atributos somente no arquivo config.yaml:</block>
+  <block id="3765a0a9e71fcf0695d585798c0f7818" category="paragraph">Observe que os argumentos da linha de comando substituem os valores do arquivo config.yaml.</block>
+  <block id="a6be72313a95cd7c51d73821a3ec4a39" category="section-title">17 de julho de 2026</block>
+  <block id="a1b9ebd6f0a705373bb04a1ef3e3e5a1" category="paragraph">Esta atualização adiciona diversas melhorias, incluindo um painel de visualização de risco da frota, suporte para autenticação e criptografia de e-mail, relatórios de contagem de unidades, suporte para versão recomendada do ONTAP e verificações de IMT para NAS e SAN.</block>
+  <block id="eb794a02fa8d9355140be4e8462e5f4f" category="list-text">Painel de controle da UHC: visualização de *Risco da Frota* agora disponível</block>
+  <block id="69161900749195d35aba8ae3dd1b86e9" category="list-text">Integração de e-mail: suporte para servidor de e-mail com autenticação e criptografia</block>
+  <block id="765efeade5c6287182e507f2e42e0c17" category="list-text">Adicionada a *Contagem de Unidades* no Resumo do Cluster no Relatório</block>
+  <block id="b3c16c4644ccd43c0fa7a23462d7f33c" category="list-text">Agora a versão do ONTAP recomendada é suportada</block>
+  <block id="3d845cec7f7e3420d8ce5c903cf124e5" category="list-text">Adicionado suporte para verificações IMT em NAS e SAN</block>
+  <block id="8aab03955bf2c1214a6ad2ee0f63546a" category="paragraph">Esta atualização adiciona a entrega de relatórios por e-mail, um parâmetro no painel para obter visões gerais rápidas do estado de saúde e novas seções de documentação para ajudar você a manter e solucionar problemas do Upgrade Health Checker.</block>
+  <block id="7d9c60c63b935ef67858fee9c59b31ce" category="list-text">Mantenha o Upgrade Health Checker em funcionamento verificando se há atualizações, monitorando os registros em busca de problemas recorrentes e certificando-se de que você configura a ferramenta corretamente.</block>
+  <block id="f59b071ecb8fe980b0730a8d2ba9bd0c" category="paragraph">Esta atualização adiciona um novo formato de relatório XLSX e requer acesso a um novo endpoint para que as atualizações automáticas funcionem.</block>
+  <block id="8a4e5ac1aa6e6074a0de130e95d9919d" category="list-text">Você deve conceder acesso UHC a um novo endpoint (+https://api.activeiq.netapp.com+) para que os recursos de atualização automática funcionem.</block>
+  <block id="a272a47b723d2038be71ba15d270606e" category="paragraph">O Upgrade Health Checker já está disponível. Esta ferramenta gera relatórios detalhados no local para ajudar você a concluir uma atualização do ONTAP com sucesso. Você pode usar o Upgrade Health Checker com estruturas de automação e orquestração existentes para economizar tempo ao atualizar clusters individuais ou múltiplos. O Upgrade Health Checker é compatível com atualizações para ONTAP 9.11.1 e versões posteriores.</block>
+  <block id="742eb09495234f505b1ad9d7813d30e7" category="sidebar">Receba relatórios por e-mail</block>
 </blocks>

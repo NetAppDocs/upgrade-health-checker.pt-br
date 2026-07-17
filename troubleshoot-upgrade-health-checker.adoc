@@ -17,12 +17,14 @@ Aprenda a solucionar problemas comuns do Verificador de Integridade da Atualiza�
 
 
 
+[[troubleshoot-issues]]
 == Solucionar problemas
 
 {empty} + {empty}
 
 
 
+[[issue-authentication-or-credential-errors]]
 === Problema: erros de autenticação ou credenciais
 
 *Sintomas:*
@@ -50,6 +52,7 @@ Esses erros indicam que o Upgrade Health Checker não consegue autenticar no clu
 
 
 
+[[issue-auto-update-fails]]
 === Problema: a atualização automática falha
 
 *Sintomas:*
@@ -81,6 +84,7 @@ df -h <location of uhc>
 
 
 
+[[issue-binary-takes-a-long-time-to-start]]
 === Problema: o binário demora muito para iniciar
 
 *Causa:* O arquivo binário é autocontido e precisa se descompactar antes de ser executado.
@@ -89,6 +93,7 @@ df -h <location of uhc>
 
 
 
+[[issue-permission-denied-or-cannot-execute-binary-on-tmp]]
 === Problema: "Permissão negada" ou "Não é possível executar o binário" em /tmp
 
 *Sintomas:*
@@ -139,6 +144,7 @@ NOTE: O caminho personalizado deve existir primeiro para que esta solução alte
 
 
 
+[[issue-connection-timeout]]
 === Problema: tempo limite de conexão
 
 *Sintomas:*
@@ -157,6 +163,7 @@ Request timeout
 
 
 
+[[issue-insufficient-disk-space]]
 === Problema: espaço de disco insuficiente
 
 *Sintomas:*
@@ -196,6 +203,7 @@ rm -rf /tmp/_MEI*
 
 
 
+[[issue-invalid-runs-path]]
 === Problema: caminho de execução inválido
 
 *Sintomas:*
@@ -215,6 +223,7 @@ Cannot create tarball: basepath_runs '<path>' does not exist
 
 
 
+[[issue-invalid-target-ontap-version]]
 === Problema: versão do ONTAP inválida
 
 *Sintomas:*
@@ -234,6 +243,7 @@ Downgrade is not supported. Target version must be greater than or equal to the 
 
 
 
+[[issue-signature-verification-fails]]
 === Problema: falha na verificação da assinatura
 
 *Sintomas:*
@@ -261,6 +271,7 @@ openssl dgst -sha256 -verify UHC-Linux-public.pub -signature uhc.sig uhc
 
 
 
+[[issue-telemetry-upload-failure]]
 === Problema: falha no envio de telemetria
 
 *Sintomas:*
@@ -283,6 +294,7 @@ Telemetry endpoint is not reachable
 
 
 
+[[issue-update-in-progress-lock-file]]
 === Problema: arquivo de bloqueio "ATUALIZAÇÃO EM ANDAMENTO"
 
 *Sintomas:*

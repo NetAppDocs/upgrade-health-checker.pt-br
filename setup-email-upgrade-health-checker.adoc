@@ -13,11 +13,14 @@ summary: Você pode configurar e-mails para receber relatórios do Upgrade Healt
 
 
 [role="lead"]
-Você pode integrar e-mails ao Upgrade Health Checker para receber relatórios na sua caixa de entrada. Você habilita esse recurso por meio do arquivo config.yaml ou argumento de linha de comando. Quando habilitado, o Upgrade Health Checker envia os relatórios gerados (HTML, Excel ou JSON) para um ou mais destinatários configurados usando um servidor SMTP. Quando o recurso está desabilitado, nenhum relatório é enviado. Se a geração de relatórios falhar e o envio por e-mail estiver habilitado, os arquivos de log serão enviados aos destinatários configurados.
+O Upgrade Health Checker pode enviar relatórios diretamente para sua caixa de entrada. Habilite esse recurso por meio do arquivo config.yaml ou de um argumento de linha de comando. Quando habilitado, o Upgrade Health Checker envia os relatórios gerados (HTML, Excel ou JSON) para um ou mais destinatários por meio de um servidor SMTP. Quando desabilitado, nenhum relatório é enviado. Se a geração do relatório falhar e o envio de e-mails estiver habilitado, o Upgrade Health Checker envia os arquivos de log para os destinatários configurados.
 
 
 
+[[configure-using-the-config-yaml-file]]
 == Configurar usando o arquivo config.yaml
+
+Você pode configurar as definições de e-mail no arquivo config.yaml, ativando os relatórios por e-mail, adicionando detalhes do servidor SMTP e especificando os endereços dos destinatários e os formatos dos relatórios.
 
 . Ative o envio de relatórios por e-mail no arquivo config.yaml.
 +
@@ -27,7 +30,7 @@ Você pode integrar e-mails ao Upgrade Health Checker para receber relatórios n
 EMAIL:
   ENABLED: true
 ----
-. Forneça a configuração SMTP juntamente com os detalhes do remetente e o assunto:
+. Adicione as configurações SMTP, os detalhes do remetente e o assunto:
 +
 [listing]
 ----
@@ -41,7 +44,7 @@ EMAIL:
     HOST: "smtp.example.com"
     PORT: [<port-number>]
 ----
-. Forneça os endereços de e-mail dos destinatários e configure quais formatos de relatório são enviados por e-mail, por exemplo, HTML, EXCEL, JSON, ALL:
+. Adicione os endereços de e-mail dos destinatários e defina quais formatos de relatório o sistema enviará por e-mail, por exemplo, HTML, EXCEL, JSON ou ALL. Você também pode usar autenticação e criptografia:
 +
 [listing]
 ----
@@ -57,12 +60,20 @@ EMAIL:
   SMTP:
     HOST: "smtp.example.com"
     PORT: [PORT]
+    USE_SMTP_AUTH: true
+    USE_TLS: true
+    USE_SSL: true
+    USERNAME: "user@example.com"
+    PASSWORD: "********"
 ----
 
 
 
 
+[[configure-using-command-line-arguments]]
 == Configurar usando argumentos de linha de comando
+
+Você pode configurar as definições básicas de email usando argumentos de linha de comando para ativar relatórios, especificar destinatários e selecionar formatos de relatório.
 
 . Ativar relatórios por e-mail usando argumentos de linha de comando:
 +
@@ -86,14 +97,14 @@ EMAIL:
 
 [NOTE]
 ====
-Os três atributos a seguir podem ser configurados usando argumentos de linha de comando e o arquivo config.yaml; os atributos restantes só podem ser configurados no arquivo config.yaml:
+Você pode configurar os três atributos a seguir usando argumentos de linha de comando ou o arquivo config.yaml. Você pode configurar todos os demais atributos somente no arquivo config.yaml:
 
 * E-mail ativado
 * Destinatários de e-mail
 * Formatos de relatório por e-mail
 
 
-Observe que, quando argumentos de linha de comando são fornecidos, eles substituem os valores do arquivo config.yaml.
+Observe que os argumentos da linha de comando substituem os valores do arquivo config.yaml.
 
 Por exemplo:
 

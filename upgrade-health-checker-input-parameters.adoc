@@ -17,6 +17,7 @@ Você pode aprender mais sobre os parâmetros de entrada do Upgrade Health Check
 
 
 
+[[input-methods-priority]]
 == Prioridade dos métodos de entrada
 
 Upgrade Health Checker oferece diversas opções de entrada para todos os parâmetros. A ordem de prioridade para aceitar entradas é:
@@ -30,10 +31,12 @@ Quando um parâmetro é fornecido por meio de vários métodos, a ferramenta usa
 
 
 
+[[input-parameters]]
 == Parâmetros de entrada
 
 
 
+[[cluster-ip]]
 === Endereço IP do cluster
 
 O  `--cluster-ip`parâmetro especifica o endereço IP ou o nome do host do cluster ONTAP ao qual se conectar.
@@ -68,6 +71,7 @@ A ferramenta solicitará: `Enter cluster IP address:`
 ====
 
 
+[[cluster-username]]
 === Nome de usuário do cluster
 
 O  `--cluster-username`parâmetro especifica o nome de usuário para autenticação no cluster ONTAP.
@@ -102,6 +106,7 @@ A ferramenta solicitará: `Enter cluster username:`
 ====
 
 
+[[cluster-password]]
 === Senha do cluster
 
 O  `--cluster-password`parâmetro especifica a senha para autenticação com o cluster ONTAP.
@@ -136,6 +141,7 @@ A ferramenta solicitará: `Enter cluster password:`
 ====
 
 
+[[target-ontap-version]]
 === Versão do ONTAP de destino
 
 O  `--target-ontap-version`parâmetro especifica a versão do ONTAP para a qual você deseja atualizar para análise. Use "current" para manter a versão do ONTAP do cluster existente.
@@ -173,6 +179,7 @@ A ferramenta exibirá as versões disponíveis e solicitará a seleção
 ====
 
 
+[[accept-eula]]
 === Aceitar contrato de licença do usuário final
 
 O `--accept-eula` parâmetro especifica se deve aceitar o contrato de licença do usuário final. Deve ser definido como `true` para prosseguir.
@@ -207,6 +214,7 @@ A ferramenta exibirá o contrato de licença do usuário final e solicitará a a
 ====
 
 
+[[configuration-file-path]]
 === Caminho do arquivo de configuração
 
 O `--config-path` parâmetro especifica o caminho para um arquivo YAML de configuração personalizado.
@@ -233,6 +241,7 @@ A ferramenta procurará config.yaml no diretório atual
 ====
 
 
+[[run-output-path]]
 === Executar caminho de saída
 
 O  `--runs-path`parâmetro especifica um diretório personalizado para armazenar os resultados das execuções e relatórios.
@@ -267,6 +276,7 @@ A ferramenta usará  `./runs` diretório
 ====
 
 
+[[skip-compatibility-check]]
 === Ignorar verificação de compatibilidade
 
 O  `--skip-compatibility-check`parâmetro ignora as verificações de compatibilidade de hardware e usa a versão especificada do ONTAP que você deseja atualizar.
@@ -300,6 +310,7 @@ CLUSTER:
 ====
 
 
+[[dashboard]]
 === Painel
 
 O  `--dashboard`parâmetro regenera o painel a partir de execuções existentes em `<runs>/dashboard/index.html`sem contatar um cluster. Você o utiliza para atualizar a visualização da frota fora de uma execução normal. O painel fornece uma visão geral de alto nível do status de integridade de todos os clusters avaliados recentemente, permitindo que você monitore e compare facilmente a prontidão para atualização de vários clusters em um só lugar. Você pode abrir o painel em um navegador da web para visualizar o status de integridade, possíveis bloqueios e riscos para cada cluster rapidamente.
@@ -323,6 +334,7 @@ O  `--dashboard`parâmetro regenera o painel a partir de execuções existentes 
 ====
 
 
+[[disable-telemetry]]
 === Desativar telemetria
 
 Para desativar a telemetria, adicione o seguinte ao seu  `config.yaml` file:
@@ -334,6 +346,7 @@ TELEMETRY:
 ----
 
 
+[[disable-automatic-updates]]
 === Desativar atualizações automáticas
 
 Para desativar as atualizações automáticas do Upgrade Health Checker, adicione o seguinte ao seu  `config.yaml` arquivo:
@@ -345,10 +358,12 @@ AUTO_UPDATE:
 ----
 
 
+[[examples-using-each-input-method]]
 == Exemplos usando cada método de entrada
 
 
 
+[[combined-cli-arguments]]
 === Argumentos combinados da CLI
 
 [listing]
@@ -365,6 +380,7 @@ AUTO_UPDATE:
 ----
 
 
+[[config-yaml-file]]
 === Arquivo config.yaml
 
 [listing]
@@ -382,6 +398,7 @@ APP:
 ----
 
 
+[[interactive-mode]]
 === Modo interativo
 
 Para solicitar interativamente todos os parâmetros de entrada necessários, execute Upgrade Health Checker sem argumentos:
@@ -392,6 +409,7 @@ Para solicitar interativamente todos os parâmetros de entrada necessários, exe
 ----
 
 
+[[additional-commands]]
 == Comandos adicionais
 
 Esses comandos fornecem algumas funcionalidades adicionais além da execução completa da ferramenta:
