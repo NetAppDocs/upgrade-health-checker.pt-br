@@ -22,11 +22,14 @@ Saiba mais sobre as novidades do Upgrade Health Checker (UHC). Você pode encont
 
 Esta atualização adiciona diversas melhorias, incluindo um painel de visualização de risco da frota, suporte para autenticação e criptografia de e-mail, relatórios de contagem de unidades, suporte para versão recomendada do ONTAP e verificações de IMT para NAS e SAN.
 
-* Painel de controle da UHC: visualização de *Risco da Frota* agora disponível
-* Integração de e-mail: suporte para servidor de e-mail com autenticação e criptografia
-* Adicionada a *Contagem de Unidades* no Resumo do Cluster no Relatório
-* Agora a versão do ONTAP recomendada é suportada
-* Adicionado suporte para verificações IMT em NAS e SAN
+* Oferece suporte para um servidor de e-mail com autenticação e criptografia.
++
+link:setup-email-upgrade-health-checker.html["Receba relatórios do Verificador de Saúde da Atualização por e-mail"].
+
+* Inclui um painel de controle de risco da frota que classifica o risco de todo o seu ambiente. Agora você pode ver quais clusters bloqueados apresentam o maior risco. Isso permite que você priorize a correção.
+* O relatório do cluster agora inclui a contagem de unidades, juntamente com a versão do ONTAP, a contagem de nós e a capacidade. Isso completa o panorama do hardware para planejamento de atualização e capacidade.
+* A avaliação do UHC agora inclui a versão do ONTAP de destino recomendada para atualização.
+* Adiciona suporte para verificações IMT em NAS e SAN.
 
 
 
