@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary:  
 ---
-= Avisos legais
+= Avisos legais para o Verificador de Saúde de Atualização
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

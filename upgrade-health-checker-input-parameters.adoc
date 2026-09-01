@@ -4,7 +4,7 @@ permalink: upgrade-health-checker-input-parameters.html
 keywords: upgrade, health, checker, input, parameter 
 summary: Você pode obter mais informações sobre os parâmetros de entrada do Upgrade Health Checker para ajudá-lo a gerar um relatório de atualização para o seu cluster ONTAP. 
 ---
-= Saiba mais sobre os parâmetros de entrada para o Upgrade Health Checker
+= Parâmetros de entrada para Upgrade Health Checker
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
