@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: troubleshoot-upgrade-health-checker.html 
 keywords: upgrade, health, checker, troubleshoot, issues, errors, ontap 
-summary: 'Solução de problemas do verificador de integridade da atualização: problemas, erros e soluções comuns para upgrades do ONTAP.' 
+summary: Solucione problemas do verificador de integridade da atualização revisando problemas, erros e soluções comuns para atualizações do ONTAP. 
 ---
 = Solução de problemas do verificador de integridade da atualização
 :hardbreaks:

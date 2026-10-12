@@ -300,7 +300,6 @@
   <block id="f46e85a0de52240f550f9daab9d6086c" category="list-text">Destinatários de e-mail</block>
   <block id="ea263adf46b6d5e874d790afd83f0987" category="list-text">Formatos de relatório por e-mail</block>
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">Por exemplo:</block>
-  <block id="1cc4274eac4a90919037379ad302ee24" category="summary">Solução de problemas do verificador de integridade da atualização: problemas, erros e soluções comuns para upgrades do ONTAP.</block>
   <block id="33fc1d20f1d2e7e8d9ea39cc1c1e260b" category="doc">Solução de problemas do verificador de integridade da atualização</block>
   <block id="8bbf781921fc79273f7113760a28cdce" category="paragraph">Aprenda a solucionar problemas comuns do Verificador de Integridade da Atualização e a resolver erros que podem bloquear o planejamento da atualização do ONTAP.</block>
   <block id="7a4e5e5bc542eae2d10e3506f839f2ae" category="section-title">Solucionar problemas</block>
@@ -402,4 +401,5 @@
   <block id="d37632fbc2f0f1b27ade5808d2dec434" category="doc">Avisos legais para o Verificador de Saúde de Atualização</block>
   <block id="58ce19f9d14bbf36c99916598d07b7c7" category="cell">Coloque a VM em um local com conectividade de cluster e acesso à internet para permitir atualizações automáticas das ferramentas. A máquina deve ter acesso aos seguintes endpoints via HTTPS (443) para realizar atualizações automáticas e permitir que a NetApp receba informações de AutoSupport sobre seus planos de atualização: https://support.netapp.com/ https://api.uhc.netapp.com https://gql.aiq.netapp.com https://api.activeiq.netapp.com</block>
   <block id="f8dfac59d1fb625ac9d81d11aafbcd07" category="admonition">Certifique-se de que a máquina virtual possa se conectar aos endpoints de atualização automática e telemetria (https://support.netapp.com/ e https://api.activeiq.netapp.com) por meio de HTTPS (443) para permitir que a NetApp receba informações do AutoSupport sobre seus planos de atualização. Se o acesso à internet não estiver disponível, você deve baixar manualmente a versão mais recente do Upgrade Health Checker.</block>
+  <block id="7b109a0da4b947e1ef4b1af915317559" category="summary">Solucione problemas do verificador de integridade da atualização revisando problemas, erros e soluções comuns para atualizações do ONTAP.</block>
 </blocks>
